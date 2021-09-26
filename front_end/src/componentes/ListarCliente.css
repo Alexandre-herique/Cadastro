@@ -1,0 +1,76 @@
+.topoCliente {
+  margin-bottom: 20px;
+  border: 1px solid #000;
+}
+
+.topoCliente th {
+  font-size: 13px;
+  text-align: center;
+}
+
+.bodyCliente td {
+  font-size: 12px;
+  text-align: center;
+}
+
+.bodyCliente {
+  border: 1px solid #000;
+}
+
+.tabelaCliente table {
+  border: none;
+  border-collapse: collapse;
+  margin-top: 30px;
+  width: 1090px;
+}
+
+.tituloTabela {
+  margin-bottom: 50px;
+}
+
+.nomeCliente {
+  width: 130px;
+}
+
+.sobrenomeCliente {
+  width: 140px;
+}
+
+.cpfCliente {
+  width: 120px;
+}
+
+.cepCliente {
+  width: 100px;
+}
+
+.endCliente {
+  width: 300px;
+}
+
+.numeroCliente {
+  width: 80px;
+}
+
+.compleCliente {
+  width: 150px;
+}
+
+.bairroCliente {
+  width: 120px;
+}
+
+.cidadeCliente {
+  width: 85px;
+}
+
+.estadoCliente {
+  width: 85px;
+}
+
+.Btm {
+  background-color: cadetblue;
+  padding: 5px;
+}
+
+/* // up */

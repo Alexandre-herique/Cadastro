@@ -1,0 +1,33 @@
+.tabelaUsuario {
+  margin: 40px auto;
+  font-size: 16px;
+
+}
+
+
+.tabelaUsuario table,
+th,
+td {
+  border: 1px solid #000;
+  border-collapse: collapse;
+
+}
+
+.tabelaUsuario table {
+  border: 1px solid #000;
+
+}
+
+.nomeUsuario {
+  width: 600px;
+}
+
+.emailUsuario {
+  width: 400px;
+}
+
+.statusUsuario {
+  width: 200px;
+}
+
+/* // up */
