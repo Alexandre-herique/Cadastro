@@ -8,7 +8,7 @@ import '../App.css';
 function Usuario() {
   const [nome, setNome] = useState([]);
   const [sobrenome, setSobrenome] = useState([]);
-  const [login, setLogin] = useState([]);
+  const [email, setEmail] = useState([]);
   const [senha, setSenha] = useState([]);
 
   const clienteHttp = axios.create({
@@ -16,7 +16,7 @@ function Usuario() {
   });
 
   const criarUsuario = () => {
-    clienteHttp.post('usuario/criar', { nome: nome, sobrenome: sobrenome, login: login, senha: senha }).then(function (response) {
+    clienteHttp.post('usuario/criar', { nome: nome, sobrenome: sobrenome, email: email, senha: senha, status: 1 }).then(function (response) {
       console.log(response.data)
       ListarUsuario()
     });
@@ -31,8 +31,8 @@ function Usuario() {
             <input type="text" className="nome" onChange={e => setNome(e.target.value)} />
             <label>sobrenome</label>
             <input type="text" className="sobrenome" onChange={e => setSobrenome(e.target.value)} /> <br />
-            <label>Login</label>
-            <input type="text" className="login" onChange={e => setLogin(e.target.value)} />
+            <label>E-mail</label>
+            <input type="text" className="login" onChange={e => setEmail(e.target.value)} />
             <label>Senha</label>
             <input type="Senha" className="Senha" onChange={e => setSenha(e.target.value)} />
             <button className="BTM" onClick={criarUsuario}>Registrar</button>

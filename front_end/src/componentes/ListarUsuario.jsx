@@ -5,7 +5,7 @@ import axios from 'axios';
 
 function ListarUsuario() {
   const [usuario, setUsuario] = useState([]);
-  const [pesquisa, setPesquisa] = useState('');
+  const [pesquisa, setPesquisa] = useState('-');
 
   const apagar = function (id) {
     clienteHttp.delete('/usuario/apagar/' + id).then(function (response) {

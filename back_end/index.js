@@ -25,7 +25,7 @@ app.get('/cliente/listar/:titulo', function (req, res) {
   var whereTitulo = '';
 
   if (req.params.titulo != '-') {
-    whereTitulo = 'WHERE nome like "%' + req.params.titulo + '%" OR sobrenome like "%' + req.params.titulo + '%" OR cpf like "%' + req.params.titulo + '%" OR cep like "%' + req.params.titulo + '%" OR endereço like "%' + req.params.titulo + '%" OR bairro like "%' + req.params.titulo + '%" OR cidade like "%' + req.params.titulo + '%"'
+    whereTitulo = ' WHERE nome like "%' + req.params.titulo + '%" OR sobrenome like "%' + req.params.titulo + '%" OR cpf like "%' + req.params.titulo + '%" OR cep like "%' + req.params.titulo + '%" OR endereco like "%' + req.params.titulo + '%" OR bairro like "%' + req.params.titulo + '%" OR cidade like "%' + req.params.titulo + '%"'
   };
 
   conn.query('SELECT * FROM clientes' + whereTitulo, function (erro, resultado, campos) {
@@ -37,8 +37,9 @@ app.get('/usuario/listar/:pesquisa', function (req, res) {
 
   var whereBusca = '';
 
-  if (req.params.pesquisa != '') {
-    whereBusca = 'WHERE nome like "%' + req.params.pesquisa + '%" OR email like "%' + req.params.pesquisa + '%"'
+
+  if (req.params.pesquisa != '-') {
+    whereBusca = ' WHERE nome like "%' + req.params.pesquisa + '%" OR email like "%' + req.params.pesquisa + '%"'
   }
 
   conn.query('SELECT * FROM usuarios' + whereBusca, function (erro, resultado, campos) {
@@ -51,14 +52,14 @@ app.get('/usuario/listar/:pesquisa', function (req, res) {
 
 app.post('/usuario/criar', function (req, res) {
 
-  conn.query('INSERT INTO usuarios (nome, email, status) VALUES ("' + req.body.nome + '", "' + req.body.email + '", "' + req.body.status + '")', function (erro, resultado, campos) {
+  conn.query('INSERT INTO usuarios (nome, email, status) VALUES ("' + req.body.nome + '", "' + req.body.email + '", "' + req.body.senha + '", "' + req.body.status + '")', function (erro, resultado, campos) {
     res.json(resultado);
   });
 });
 
 app.post('/cliente/criar', function (req, res) {
 
-  conn.query('INSERT INTO clientes (nome, sobrenome, cpf, cep, endereco, numero, cidade, estado) VALUES ("' + req.body.nome + '", "' + req.body.sobrenome + '","' + req.body.cpf + '","' + req.body.cef + '","' + req.body.endereco + '","' + req.body.numero + '","' + req.body.cidade + '","' + req.body.estado + '")', function (erro, resultado, campos) {
+  conn.query('INSERT INTO clientes (nome, sobrenome, cpf, cep, endereco, complemento, numero, cidade, estado) VALUES ("' + req.body.nome + '", "' + req.body.sobrenome + '","' + req.body.cpf + '","' + req.body.cef + '","' + req.body.endereco + '","' + req.body.complemento + '","' + req.body.numero + '","' + req.body.cidade + '","' + req.body.estado + '")', function (erro, resultado, campos) {
     res.json(resultado);
   });
 });

@@ -51,9 +51,9 @@ function ListarCliente() {
     });
   }
 
-  function alteraValor(e) {
-    setPesquisa(e.target.value);
-  }
+  // function alteraValor(e) {
+  //   setPesquisa(e.target.value);
+  // }
   function busca() {
     listaCliente();
   }
@@ -61,7 +61,7 @@ function ListarCliente() {
   return (
     <div className="tabelaCliente">
       <div>
-        <input type="text" value={pesquisa} onChange={alteraValor} /> <button onClick={busca}>Pesquisa</button><br />
+        <input type="text" onChange={e => setPesquisa(e.target.value)} /> <button onClick={busca}>Pesquisa</button><br />
       </div>
       <table className="tituloTabela">
         <tr className="topoCliente">
@@ -89,5 +89,3 @@ function ListarCliente() {
 
 export default ListarCliente;
 
-
-// up
