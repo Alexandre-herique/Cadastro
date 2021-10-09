@@ -6,24 +6,28 @@ import './FormCliente.css';
 import ListarCliente from './ListarCliente';
 
 function Cliente() {
-  const [nome, setNome] = useState([]);
-  const [sobrenome, setSobrenome] = useState([]);
-  const [cpf, setCpf] = useState([]);
-  const [cep, setCep] = useState([]);
-  const [endereco, setEndereco] = useState([]);
-  const [numero, setNumero] = useState([]);
-  const [complemento, setComplemento] = useState([]);
-  const [cidade, setCidade] = useState([]);
-  const [estado, setEstado] = useState([]);
+  const [nome, setNome] = useState(null);
+  const [sobrenome, setSobrenome] = useState([])
+  const [cpf, setCpf] = useState([])
+  const [cep, setCep] = useState([])
+  const [endereco, setEndereco] = useState([])
+  const [numero, setNumero] = useState([])
+  const [complemento, setComplemento] = useState([])
+  const [cidade, setCidade] = useState([])
+  const [estado, setEstado] = useState([])
 
+
+  
   const clienteHttp = axios.create({
     baseURL: 'http://localhost:3004/'
   });
 
   const criarCliente = () => {
-    clienteHttp.post('cliente/criar', { nome: nome, sobrenome: sobrenome, cpf: cpf, cep: cep, endereco: endereco, numero: numero, complemento: complemento, cidade: cidade, estado: estado }).then(function (response) {
+    clienteHttp.post('clientes/criar', { nome: nome, sobrenome: sobrenome, cpf: cpf, cep: cep, endereco: endereco, complemento: complemento, numero: numero, cidade: cidade, estado: estado }).then(function (response) {
       console.log(response.data)
-      ListarCliente()
+      // ListarCliente()
+      console.log()
+      
     });
   }
 
@@ -32,7 +36,7 @@ function Cliente() {
     <div>
       <div className="formCliente">
         <div className="container">
-          <form action="">
+          <form>
             <label>Nome</label>
             <input type="text" className="nome" onChange={e => setNome(e.target.value)} />
             <label>sobrenome</label>
@@ -51,7 +55,7 @@ function Cliente() {
             <input type="text" className="Cidade" onChange={e => setCidade(e.target.value)} />
             <label>Estado</label>
             <input type="text" className="Estado" onChange={e => setEstado(e.target.value)} />
-            <button href="" className="BTM" onClick={criarCliente}>Registrar</button>
+            <button type="submit" className="BTM" onClick={criarCliente}>Registrar</button>
           </form>
         </div>
 
