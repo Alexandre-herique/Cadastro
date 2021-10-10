@@ -4,29 +4,28 @@ import axios from 'axios';
 import '../App.css';
 import './FormCliente.css';
 import ListarCliente from './ListarCliente';
+import { useHistory } from 'react-router-dom';
 
 function Cliente() {
-  const [nome, setNome] = useState(null);
-  const [sobrenome, setSobrenome] = useState([])
-  const [cpf, setCpf] = useState([])
-  const [cep, setCep] = useState([])
-  const [endereco, setEndereco] = useState([])
-  const [numero, setNumero] = useState([])
-  const [complemento, setComplemento] = useState([])
-  const [cidade, setCidade] = useState([])
-  const [estado, setEstado] = useState([])
+  const [nome, setNome] = useState([]);
+  const [sobrenome, setSobrenome] = useState('')
+  const [cpf, setCpf] = useState('')
+  const [cep, setCep] = useState('')
+  const [endereco, setEndereco] = useState('')
+  const [numero, setNumero] = useState('')
+  const [complemento, setComplemento] = useState('')
+  const [cidade, setCidade] = useState('')
+  const [estado, setEstado] = useState('')
 
-
+  const history = useHistory();
   
   const clienteHttp = axios.create({
     baseURL: 'http://localhost:3004/'
   });
 
   const criarCliente = () => {
-    clienteHttp.post('cliente/criar', { nome: nome, sobrenome: sobrenome, cpf: cpf, cep: cep, endereco: endereco, complemento: complemento, numero: numero, cidade: cidade, estado: estado }).then(function (response) {
-      console.log(response.data)
-      ListarCliente()
-      
+    clienteHttp.post('/cliente/criar', { nome: nome, sobrenome: sobrenome, cpf: cpf, cep: cep, endereco: endereco, complemento: complemento, numero: numero, cidade: cidade, estado: estado }).then(function (response) {
+      history.push('/cliente');
     });
   }
 
