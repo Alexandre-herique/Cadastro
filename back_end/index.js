@@ -3,9 +3,9 @@ const cors = require('cors'); //chamando a biblioteca cors
 const mysql = require('mysql'); //chamando a biblioteca mysql
 
 const conn = mysql.createConnection({   //solicitação de conexão
-  host: '120.0.0.1',
+  host: 'localhost',
   user: 'root',
-  password: '@Lexandre230188',
+  password: '@lexandre230188',
   database: 'SCC'
 });
 

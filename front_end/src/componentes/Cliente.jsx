@@ -25,8 +25,7 @@ function Cliente() {
   const criarCliente = () => {
     clienteHttp.post('cliente/criar', { nome: nome, sobrenome: sobrenome, cpf: cpf, cep: cep, endereco: endereco, complemento: complemento, numero: numero, cidade: cidade, estado: estado }).then(function (response) {
       console.log(response.data)
-      // ListarCliente()
-      console.log()
+      ListarCliente()
       
     });
   }
