@@ -7,7 +7,7 @@ import ListarCliente from './ListarCliente';
 import { useHistory } from 'react-router-dom';
 
 function Cliente() {
-  const [nome, setNome] = useState([]);
+  const [nome, setNome] = useState('');
   const [sobrenome, setSobrenome] = useState('')
   const [cpf, setCpf] = useState('')
   const [cep, setCep] = useState('')
@@ -20,12 +20,13 @@ function Cliente() {
   const history = useHistory();
   
   const clienteHttp = axios.create({
-    baseURL: 'http://localhost:3004/'
+    baseURL: 'http://localhost:3004'
   });
 
   const criarCliente = () => {
-    clienteHttp.post('/cliente/criar', { nome: nome, sobrenome: sobrenome, cpf: cpf, cep: cep, endereco: endereco, complemento: complemento, numero: numero, cidade: cidade, estado: estado }).then(function (response) {
-      history.push('/cliente');
+    clienteHttp.post('cliente/criar', { nome: nome, sobrenome: sobrenome, cpf: cpf, cep: cep, endereco: endereco, complemento: complemento, numero: numero, cidade: cidade, estado: estado }).then(function (response) {
+      history.go(0);
+      // ListarCliente()
     });
   }
 
@@ -53,7 +54,7 @@ function Cliente() {
             <input type="text" className="Cidade" onChange={e => setCidade(e.target.value)} />
             <label>Estado</label>
             <input type="text" className="Estado" onChange={e => setEstado(e.target.value)} />
-            <button type="submit" className="BTM" onClick={criarCliente}>Registrar</button>
+            <button type="button" className="BTM" onClick={criarCliente}>Registrar</button>
           </form>
         </div>
 

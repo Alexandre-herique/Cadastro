@@ -15,7 +15,7 @@ function App() {
           <Route path="/" exact>
 
           </Route>
-          <Route path="/cliente" exact>
+          <Route path="/cliente/" exact>
             <Cliente />
           </Route>
           <Route path="/usuario" exact>
@@ -34,4 +34,3 @@ function App() {
 export default App;
 
 
-// up

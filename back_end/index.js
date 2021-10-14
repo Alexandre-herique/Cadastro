@@ -59,7 +59,7 @@ app.post('/usuario/criar', function (req, res) {
 
 app.post('/cliente/criar', function (req, res) {
 
-  conn.query('INSERT INTO clientes (nome, sobrenome, cpf, cep, endereco, complemento, numero, cidade, estado) VALUES ("' + req.body.nome + '", "' + req.body.sobrenome + '","' + req.body.cpf + '","' + req.body.cef + '","' + req.body.endereco + '","' + req.body.complemento + '","' + req.body.numero + '","' + req.body.cidade + '","' + req.body.estado + '")', function (erro, resultado, campos) {
+  conn.query('INSERT INTO clientes (nome, sobrenome, cpf, cep, endereco, complemento, numero, cidade, estado) VALUES ("' + req.body.nome + '", "' + req.body.sobrenome + '","' + req.body.cpf + '","' + req.body.cep + '","' + req.body.endereco + '","' + req.body.complemento + '","' + req.body.numero + '","' + req.body.cidade + '","' + req.body.estado + '")', function (erro, resultado, campos) {
     res.json(resultado);
   });
 });

@@ -5,14 +5,15 @@ import axios from 'axios';
 import './ListarCliente.css';
 import '../App.css';
 
+
 function ListarCliente() {
   const [cliente, setCliente] = useState([])
-  const [pesquisa, setPesquisa] = useState ('-')
+  const [pesquisa, setPesquisa] = useState('-')
 
-  const apagar = function (id) {
+  const apagarClient = function (id) {
     clienteHttp.delete('/cliente/apagar/' + id).then(function (response) {
       listaCliente();
-    });
+    });  
   }
 
   const itensDb = cliente.map(function (item) {
@@ -29,7 +30,7 @@ function ListarCliente() {
         <td className="bairroCliente">{item.bairro}</td>
         <td className="cidadeCliente">{item.cidade}</td>
         <td className="estadoCliente">{item.estado}</td>
-        <button onClick={function () { apagar(item.id) }} className="Btm">Apagar</button>
+        <button onClick={function () { apagarClient(item.id) }} className="Btm">Apagar</button>
       </tr>
 
     );
@@ -51,9 +52,7 @@ function ListarCliente() {
     });
   }
 
-  // function alteraValor(e) {
-  //   setPesquisa(e.target.value);
-  // }
+  
   function busca() {
     listaCliente();
   }
